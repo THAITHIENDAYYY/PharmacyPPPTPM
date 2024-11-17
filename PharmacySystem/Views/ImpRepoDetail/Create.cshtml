@@ -1,0 +1,45 @@
+﻿@model PharmacySystem.Models.ImpRepoDetail
+
+@{
+    ViewData["Title"] = "Create ImpRepoDetail";
+}
+
+<div class="container mt-5">
+    <h1 class="text-center mb-3">Create ImpRepoDetail</h1>
+    <h4 class="text-center text-muted">ImpRepoDetail Information</h4>
+    <hr class="mb-4" />
+
+    <div class="row justify-content-center">
+        <div class="col-lg-6 col-md-8">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
+
+                <div class="mb-3">
+                    <label asp-for="ProductId" class="form-label"></label>
+                    <select asp-for="ProductId" class="form-control" asp-items="ViewBag.ProductId"></select>
+                    <span asp-validation-for="ProductId" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="ImpRepoId" class="form-label"></label>
+                    <select asp-for="ImpRepoId" class="form-control" asp-items="ViewBag.ImpRepoId"></select>
+                    <span asp-validation-for="ImpRepoId" class="text-danger"></span>
+                </div>
+
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-primary btn-block">Create ImpRepoDetail</button>
+                </div>
+            </form>
+
+            <div class="text-center mt-4">
+                <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

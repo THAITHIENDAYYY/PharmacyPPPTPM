@@ -1,0 +1,132 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="container-fluid px-4">
+    <h1 class="mt-4 text-primary">Dashboard</h1>
+    <ol class="breadcrumb mb-4 bg-light p-2 rounded">
+        <li class="breadcrumb-item active">Dashboard</li>
+    </ol>
+
+    <div class="row gy-4">
+        @if (User.Identity.IsAuthenticated && User.IsInRole("admin"))
+        {
+            <div class="col-lg-4 col-md-6">
+                <div class="card shadow-sm border-0">
+                    <div class="card-body bg-secondary text-white">
+                        <h5>Ca làm việc</h5>
+                        <p>Quản lý ca làm việc trong hệ thống.</p>
+                        <a class="btn btn-outline-light btn-sm mt-2" asp-area="" asp-controller="Shift" asp-action="Index">Xem thêm</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="card shadow-sm border-0">
+                    <div class="card-body bg-secondary text-white">
+                        <h5>Ngày làm việc</h5>
+                        <p>Thông tin ngày làm việc chi tiết.</p>
+                        <a class="btn btn-outline-light btn-sm mt-2" asp-area="" asp-controller="WorkDay" asp-action="Index">Xem thêm</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="card shadow-sm border-0">
+                    <div class="card-body bg-secondary text-white">
+                        <h5>Tài khoản</h5>
+                        <p>Quản lý tài khoản người dùng.</p>
+                        <a class="btn btn-outline-light btn-sm mt-2" asp-area="" asp-controller="Account" asp-action="Index">Xem thêm</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="card shadow-sm border-0">
+                    <div class="card-body bg-secondary text-white">
+                        <h5>Nhà cung cấp</h5>
+                        <p>Danh sách và thông tin nhà cung cấp.</p>
+                        <a class="btn btn-outline-light btn-sm mt-2" asp-area="" asp-controller="Supplier" asp-action="Index">Xem thêm</a>
+                    </div>
+                </div>
+            </div>
+        }
+
+        @if (User.Identity.IsAuthenticated && (User.IsInRole("admin") || User.IsInRole("pharmacist")))
+        {
+            <div class="col-lg-4 col-md-6">
+                <div class="card shadow-sm border-0">
+                    <div class="card-body bg-secondary text-white">
+                        <h5>Hóa đơn</h5>
+                        <p>Quản lý hóa đơn bán hàng.</p>
+                        <a class="btn btn-outline-light btn-sm mt-2" asp-area="" asp-controller="Bill" asp-action="Index">Xem thêm</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="card shadow-sm border-0">
+                    <div class="card-body bg-secondary text-white">
+                        <h5>Loại sản phẩm</h5>
+                        <p>Danh mục và thông tin sản phẩm.</p>
+                        <a class="btn btn-outline-light btn-sm mt-2" asp-area="" asp-controller="Category" asp-action="Index">Xem thêm</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="card shadow-sm border-0">
+                    <div class="card-body bg-secondary text-white">
+                        <h5>Khách hàng</h5>
+                        <p>Danh sách khách hàng của bạn.</p>
+                        <a class="btn btn-outline-light btn-sm mt-2" asp-area="" asp-controller="Customer" asp-action="Index">Xem thêm</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="card shadow-sm border-0">
+                    <div class="card-body bg-secondary text-white">
+                        <h5>Sản phẩm</h5>
+                        <p>Thông tin chi tiết sản phẩm.</p>
+                        <a class="btn btn-outline-light btn-sm mt-2" asp-area="" asp-controller="Product" asp-action="Index">Xem thêm</a>
+                    </div>
+                </div>
+            </div>
+        }
+
+        @if (User.Identity.IsAuthenticated && (User.IsInRole("admin") || User.IsInRole("repo")))
+        {
+            <div class="col-lg-4 col-md-6">
+                <div class="card shadow-sm border-0">
+                    <div class="card-body bg-secondary text-white">
+                        <h5>Phiếu xuất kho</h5>
+                        <p>Quản lý phiếu xuất kho.</p>
+                        <a class="btn btn-outline-light btn-sm mt-2" asp-area="" asp-controller="ExpRepo" asp-action="Index">Xem thêm</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="card shadow-sm border-0">
+                    <div class="card-body bg-secondary text-white">
+                        <h5>Phiếu nhập kho</h5>
+                        <p>Quản lý phiếu nhập kho.</p>
+                        <a class="btn btn-outline-light btn-sm mt-2" asp-area="" asp-controller="ImpRepo" asp-action="Index">Xem thêm</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="card shadow-sm border-0">
+                    <div class="card-body bg-secondary text-white">
+                        <h5>Chi tiết phiếu nhập kho</h5>
+                        <p>Xem thông tin chi tiết phiếu nhập.</p>
+                        <a class="btn btn-outline-light btn-sm mt-2" asp-area="" asp-controller="ImpRepoDetail" asp-action="Index">Xem thêm</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="card shadow-sm border-0">
+                    <div class="card-body bg-secondary text-white">
+                        <h5>Tồn kho</h5>
+                        <p>Quản lý thông tin tồn kho.</p>
+                        <a class="btn btn-outline-light btn-sm mt-2" asp-area="" asp-controller="Inventory" asp-action="Index">Xem thêm</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
